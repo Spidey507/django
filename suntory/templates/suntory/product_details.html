@@ -1,0 +1,6 @@
+<a href="{% url 'suntory:product_list' %}">Back to Products</a>
+<a href="{% url 'suntory:distillery_info' %}">Back to homepage</a>
+
+<h1>{{ product.product_name }}</h1>
+<p>{{ product.description }}</p>
+<p>Price: ${{ product.price }}</p>
