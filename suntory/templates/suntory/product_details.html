@@ -4,3 +4,21 @@
 <h1>{{ product.product_name }}</h1>
 <p>{{ product.description }}</p>
 <p>Price: ${{ product.price }}</p>
+
+<a href="{% url 'suntory:review_form' id=product.id %}">Add a Review</a>
+
+<hr> 
+
+<h2>Reviews</h2>
+{% if reviews %}
+    <ul>
+        {% for review in reviews %}
+            <li>
+                <strong>{{ review.title }}</strong><br>
+                {{ review.body }}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No reviews available for this product.</p>
+{% endif %}
