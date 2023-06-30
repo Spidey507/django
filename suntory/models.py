@@ -16,3 +16,8 @@ class Distillery(models.Model):
     distillery_country = models.CharField(max_length=50)
     distillery_description = models.CharField(max_length=1000)
     distillery_id = models.AutoField(primary_key=True)
+
+class Review(models.Model):
+    title = models.CharField(max_length=50)
+    body = models.CharField(max_length=500)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')
