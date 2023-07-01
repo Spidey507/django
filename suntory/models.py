@@ -16,7 +16,17 @@ class Distillery(models.Model):
     distillery_country = models.CharField(max_length=50)
     distillery_description = models.CharField(max_length=1000)
     distillery_id = models.AutoField(primary_key=True)
-    distillery_image = models.ImageField(upload_to='distillery_images/', default='distillery_images/default.jpg')
+
+class DistilleryImage(models.Model):
+    distillery = models.ForeignKey(Distillery, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='distillery_images/', default='distillery_images/default.jpg')
+    image_name = models.CharField(max_length=255, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.image_name:
+            self.image_name = str(self.image)
+        super().save(*args, **kwargs)
+
 
 class Review(models.Model):
     title = models.CharField(max_length=50)
