@@ -16,7 +16,6 @@ def product_details(request, id):
 
 def review_form(request, id):
     product = Product.objects.get(id=id)
-
     if request.method == 'POST':
         # Process the form data and save the review
         title = request.POST.get('title')

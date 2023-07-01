@@ -16,6 +16,7 @@ class Distillery(models.Model):
     distillery_country = models.CharField(max_length=50)
     distillery_description = models.CharField(max_length=1000)
     distillery_id = models.AutoField(primary_key=True)
+    distillery_image = models.ImageField(upload_to='distillery_images/', default='distillery_images/default.jpg')
 
 class Review(models.Model):
     title = models.CharField(max_length=50)
