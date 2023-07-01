@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Product, Distillery, Review
+from .models import Product, Distillery, Review, DistilleryImage
 
 def product_list(request):
     products = Product.objects.all()
@@ -7,7 +7,9 @@ def product_list(request):
 
 def distillery_info(request):
     distillery = Distillery.objects.first()
-    return render(request, 'suntory/distillery_info.html', {'distillery': distillery})
+    images = DistilleryImage.objects.filter(distillery=distillery)
+    return render(request, 'suntory/distillery_info.html', {'distillery': distillery, 'images': images})
+
 
 def product_details(request, id):
     product = get_object_or_404(Product, id=id)
