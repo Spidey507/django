@@ -3,12 +3,14 @@ module.exports = {
   content: [
     './suntory/templates/**/*.html',  // Add the path to your HTML templates
     './suntory/static/**/*.js',       // Add the path to your JavaScript files
+    './node_modules/flowbite/**/*.js'
   ],
   theme: {
     extend: {},
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
+    require('flowbite/plugin'),
   ],
 }
 
