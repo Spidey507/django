@@ -7,8 +7,14 @@ def product_list(request):
 
 def distillery_info(request):
     distillery = Distillery.objects.first()
-    images = DistilleryImage.objects.filter(distillery=distillery)
-    return render(request, 'suntory/distillery_info.html', {'distillery': distillery, 'images': images})
+    images = DistilleryImage.objects.filter(distillery=distillery)    
+    logo_image = images.filter(image_name='logo').first()
+    context = {
+        'distillery': distillery,
+        'images': images,
+        'logo_image': logo_image,
+    }
+    return render(request, 'suntory/distillery_info.html', context)
 
 
 def product_details(request, id):

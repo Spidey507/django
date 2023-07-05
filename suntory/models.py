@@ -14,7 +14,7 @@ class Product(models.Model):
 class Distillery(models.Model):
     distillery_name = models.CharField(max_length=50)
     distillery_country = models.CharField(max_length=50)
-    distillery_description = models.CharField(max_length=1000)
+    distillery_description = models.CharField(max_length=2500)
     distillery_id = models.AutoField(primary_key=True)
 
 class DistilleryImage(models.Model):
