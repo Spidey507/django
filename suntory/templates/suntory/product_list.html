@@ -1,29 +1,33 @@
-{% load static %}
+{% extends 'base.html' %}
 
-<link rel="stylesheet" href="{% static 'suntory/output.css' %}">
+{% block content %}
+    {% load static %}
 
-<div class="h-screen">
-    <div class="bg-zinc-300">
-        <a href="{% url 'suntory:distillery_info' %}">Back to homepage</a>
-        <div class="mx-auto px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-            <h1 class="text-2xl font-bold tracking-tight text-gray-900">Product List</h1>
-            <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 gap-x-6 gap-y-10 xl:gap-x-8">
-                {% for product in products %}
-                    <a href="{% url 'suntory:product_details' product.id %}">
-                        <div class="group relative">
-                            <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                                <img src="{{ product.product_image.url }}" alt="{{ product.product_name }}" class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+    <link rel="stylesheet" href="{% static 'suntory/output.css' %}">
+
+    <div>
+        <div class="bg-zinc-300">
+            <a href="{% url 'suntory:distillery_info' %}">Back to homepage</a>
+            <div class="mx-auto px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+                <h1 class="text-2xl font-bold tracking-tight text-gray-900">Product List</h1>
+                <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 gap-x-6 gap-y-10 xl:gap-x-8">
+                    {% for product in products %}
+                        <a href="{% url 'suntory:product_details' product.id %}">
+                            <div class="group relative">
+                                <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                                    <img src="{{ product.product_image.url }}" alt="{{ product.product_name }}" class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                                </div>
+                                <div class="mt-4 flex justify-between">
+                                    <h2 class="text-sm text-gray-700">{{ product.product_name }}</h2>
+                                    <p class="mt-1 text-sm text-gray-500">Price: ${{ product.price }}</p>
+                                </div>
                             </div>
-                            <div class="mt-4 flex justify-between">
-                                <h2 class="text-sm text-gray-700">{{ product.product_name }}</h2>
-                                <p class="mt-1 text-sm text-gray-500">Price: ${{ product.price }}</p>
-                            </div>
-                        </div>
-                    </a>
-                {% empty %}
-                <li>No products available.</li>
-                {% endfor %}
-            </div>
+                        </a>
+                    {% empty %}
+                    <li>No products available.</li>
+                    {% endfor %}
+                </div>
+            </div>    
         </div>    
-    </div>    
-</div>
+    </div>
+{% endblock %}
