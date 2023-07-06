@@ -6,7 +6,11 @@ module.exports = {
     './node_modules/flowbite/**/*.js'
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'footer-color': '#c6dbe1',
+      },
+    },
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),

@@ -52,33 +52,37 @@
         <!-- Footer section -->
         
         
-        <footer class="bg-gray-900 shadow">
-            <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <footer class="shadow w-full">
+            <div class="bg-white w-full mx-auto px-80 md:py-8">
+                <a href="{% url 'suntory:distillery_info' %}" class="flex items-center mb-4 sm:mb-0">
+                    {% if logo_image %}
+                        <img src="{{ logo_image.image.url }}" class="h-8 mr-3" alt="Flowbite Logo" />
+                    {% endif %}
+                </a>
+            </div>
+            <div class="footer-color w-full mx-auto px-80 md:py-8">
                 <div class="sm:flex sm:items-center sm:justify-between">
-                    <a href="{% url 'suntory:distillery_info' %}" class="flex items-center mb-4 sm:mb-0">
-                        {% if logo_image %}
-                            <img src="{{ logo_image.image.url }}" class="h-8 mr-3" alt="Flowbite Logo" />
-                        {% endif %}
-                    </a>
-                    <ul class="flex flex-wrap items-center mb-6 text-sm font-medium sm:mb-0 text-gray-400">
-                        <li>
-                            <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
-                        </li>
-                        <li>
-                            <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
-                        </li>
-                        <li>
-                            <a href="#" class="mr-4 hover:underline md:mr-6 ">Licensing</a>
-                        </li>
-                        <li>
-                            <a href="#" class="hover:underline">Contact</a>
-                        </li>
-                    </ul>
+                    <div class="flex flex-wrap items-center mb-6 text-lg font-medium sm:mb-0 text-black sm:w-full">
+                        <div class="w-1/4 flex justify-center">
+                            <a href="#" class="mr-4 hover:underline md:mr-6">About Us</a>
+                        </div>
+                        <div class="w-1/4 flex justify-center">
+                            <a href="#" class="mr-4 hover:underline md:mr-6">Newsroom</a>
+                        </div>
+                        <div class="w-1/4 flex justify-center">
+                            <a href="#" class="mr-4 hover:underline md:mr-6">Financial Information</a>
+                        </div>
+                        <div class="w-1/4 flex justify-center">
+                            <a href="#" class="hover:underline">Come Visit Us</a>
+                        </div>
+                    </div>
                 </div>
                 <hr class="my-6 sm:mx-auto border-gray-700 lg:my-8" />
-                <span class="block text-sm sm:text-center text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.</span>
+                <span class="block text-sm sm:text-center text-black">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.</span>
             </div>
+            
         </footer>
+        
         <!-- Add your JavaScript and other footer elements here -->
     </body>
 </html>
